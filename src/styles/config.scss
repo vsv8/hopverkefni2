@@ -1,7 +1,18 @@
 $max-width: 1200px;
 $gutter: 20px;
-$font-main: arial;
 
-div {
+$black: #000;
+$darkgrey: #999;
+$grey: #aaa;
+$lightgrey: #ccc;
+$lime: #2d2;
+$green: #1a1;
+$yellow: #fcffd2;
+$red: #cc9694;
 
-}
+$font-main: 'Times New Roman';
+$font-main-lora: 'Lora', serif;
+$font-main-serif: 'PT Serif', serif;
+$font-heading: 'Roboto Mono', monospace;
+$font-heading-monospace: 'Monospace';
+$font-heading-courier: 'Courier New';

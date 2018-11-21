@@ -1,0 +1,22 @@
+@import "config";
+
+.buttons {
+  text-align: center;
+  padding: 2*$gutter;
+
+  &__button {
+    background-color: $lightgrey;
+    height: 2*$gutter;
+    border: 0 solid;
+    padding: 0 0.5*$gutter;
+    margin: 0 0.5*$gutter;
+    font-family: $font-heading;
+    border-radius: 10px;
+    transition: background-color  300ms ease-in-out 0s;
+  }
+
+  &__button__selected {
+      background-color: $lime;
+      transition: background-color  300ms ease-in-out 0s;
+    }
+}
