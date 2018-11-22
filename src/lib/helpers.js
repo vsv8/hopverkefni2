@@ -20,7 +20,13 @@ export function empty(element) {
  */
 export function el(name, classes, ...childrens) {
   const element = document.createElement(name);
-  element.classList.add(classes);
+  if (Array.isArray(classes)) {
+    classes.forEach((classChild) => {
+      element.classList.add(classChild);
+    });
+  } else if (classes) {
+    element.classList.add(classes);
+  }
   let children;
   if (Array.isArray(childrens[0])) {
     [children] = childrens;

@@ -1,11 +1,10 @@
 import { empty } from './helpers';
-import lectures from '../lectures.json';
 
 export default class List {
   constructor() {
     this.container = document.querySelector('.list');
   }
-
+/*
   fetchData() {
     fetch('../lectures.json')
       .then((lectures) => {
@@ -16,4 +15,5 @@ export default class List {
   load() {
     empty(this.container);
   }
+  */
 }
