@@ -1,0 +1,12 @@
+@import "config";
+
+.lecture {
+
+  &__footer {
+
+     &__baclink {
+       display: block;
+       margin: auto;
+     }
+  }
+}

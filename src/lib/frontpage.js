@@ -3,12 +3,8 @@ import { empty, el } from './helpers';
 // const API_URL = '/example.json?domain=';
 const LECTURE_URL = '../lectures.json';
 let frontpage;
-const htmlButton = document.querySelector('.button');
-htmlButton.addEventListener('click', hideLectures)
-const cssButton = document.querySelectorAll('.button')[1];
-cssButton.addEventListener('click', hideLectures);
-const jsButton = document.querySelectorAll('.button')[2];
-jsButton.addEventListener('click', hideLectures);
+
+
 
 function displayLectures(lectureList) {
   const container = frontpage.querySelector('.lectures__container');
@@ -17,7 +13,8 @@ function displayLectures(lectureList) {
     var {
       category, content, image, slug, thumbnail, title,
     } = lecture;
-    const boxElement = el('p','box',title)
+    const boxElement = el('a','box',title);
+    boxElement.href = `fyrirlestur.html?slug=${slug}`;
     const colElement = el('div',['col', 'col12', 'colBig6', 'colBigger4'],boxElement);
     container.appendChild(colElement);
   });
@@ -71,6 +68,12 @@ function hideLectures(e) {
 }
 
 export function load(_frontpage) {
+  const htmlButton = document.querySelector('.button');
+  htmlButton.addEventListener('click', hideLectures)
+  const cssButton = document.querySelectorAll('.button')[1];
+  cssButton.addEventListener('click', hideLectures);
+  const jsButton = document.querySelectorAll('.button')[2];
+  jsButton.addEventListener('click', hideLectures);
   frontpage=_frontpage;
   fetchLectures();
 }
