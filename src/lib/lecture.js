@@ -14,31 +14,35 @@ function findlecture(array, key, value) {
 }
 
 function createYoutube(data){
-  const element = el('p','bla','youtube');
+  const element = el('iframe','lecture__youtube','');
+  element.src = data;
+  element.frameborder = "0";
+  element.allowfullscreen = "0";
   return element;
 }
 function createText(data){
-  const element = el('p','bla','text');
+  const element = el('p','lecture__text',`${data}`);
   return element;
 }
 function createQuote(data){
-  const element = el('p','bla','quote');
+  const element = el('h3','lecture__quote',`${data}`);
   return element;
 }
 function createImage(data){
-  const element = el('p','bla','image');
+  const element = el('img','lecture__image','image');
+  element.src = data;
   return element;
 }
 function createHeading(data){
-  const element = el('p','bla','heading');
+  const element = el('h2','lecture__heading',`${data}`);
   return element;
 }
 function createList(data){
-  const element = el('p','bla','list');
+  const element = el('p','lecture__list',`${data}`);
   return element;
 }
 function createCode(data){
-  const element = el('p','bla','code');
+  const element = el('p','lecture__code',`${data}`);
   return element;
 }
 
@@ -74,7 +78,7 @@ function displayLectureContent(content) {
     } else if (type === 'code') {
       element = createCode(data);
     }
-    const colElement = el('div',['col', 'col12', 'colBig6', 'offsetBig2'],element);
+    const colElement = el('div',['col', 'col12', 'colBig8', 'offsetBig2'],element);
     container.appendChild(colElement);
   });
 }

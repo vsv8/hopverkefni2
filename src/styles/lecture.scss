@@ -3,10 +3,11 @@
 .lecture {
 
   &__footer {
+    text-align: center;
 
-     &__baclink {
+     &__backlink {
        display: block;
-       margin: auto;
+       text-align: center;
      }
   }
 }
