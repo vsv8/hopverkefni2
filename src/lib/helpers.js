@@ -9,8 +9,6 @@ export function empty(element) {
   }
 }
 
-
-
 /**
  * Búa til element og aukalega setja börn ef send með
  *
