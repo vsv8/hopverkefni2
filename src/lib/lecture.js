@@ -14,36 +14,64 @@ function findlecture(array, key, value) {
 }
 
 function createYoutube(data){
-  const element = el('iframe','lecture__youtube','');
+  const element = el('iframe','lecture__youtube__video','');
   element.src = data;
   element.frameborder = "0";
   element.allowfullscreen = "0";
-  return element;
+  const container = el('div','lecture__youtube__container',element)
+  return container;
 }
 function createText(data){
-  const element = el('p','lecture__text',`${data}`);
-  return element;
+  const container = el('div','lecture__text__container', null )
+  const textar = data.split('\n')
+  textar.forEach(function(text) {
+    const element = el('p','lecture__text',`${text}`);
+    container.appendChild(element);
+  });
+  return container;
 }
-function createQuote(data){
-  const element = el('h3','lecture__quote',`${data}`);
-  return element;
+function createQuote(data,attribute){
+  const container = el('div','lecture__quote__container', null )
+  const element = el('p','lecture__quote',`${data}`);
+  container.appendChild(element);
+  const element2 = el('p','lecture__quote__attribute',`${attribute}`);
+  container.appendChild(element2);
+  return container;
 }
-function createImage(data){
-  const element = el('img','lecture__image','image');
+function createImage(data,caption){
+  const container = el('div','lecture__quote__container', null )
+  const element = el('img','lecture__image','');
   element.src = data;
-  return element;
+  container.appendChild(element);
+  const element2 = el('p','lecture__image__caption',`${caption}`);
+  container.appendChild(element2);
+  return container;
 }
 function createHeading(data){
   const element = el('h2','lecture__heading',`${data}`);
   return element;
 }
 function createList(data){
-  const element = el('p','lecture__list',`${data}`);
-  return element;
+  const list = el('ul','lecture__list', null )
+  data.forEach(function(listEl) {
+    const element = el('li','lecture__list__element',`${listEl}`);
+    list.appendChild(element);
+  });
+  return list;
 }
 function createCode(data){
-  const element = el('p','lecture__code',`${data}`);
-  return element;
+  const container = el('div','lecture__code__container', null )
+  const lines = data.split('\n')
+  lines.forEach(function(line) {
+    var element;
+    if (line === "") {
+      element = el('br','','');
+    } else {
+      element = el('p','lecture__code',`${line}`);
+    }
+    container.appendChild(element);
+  });
+  return container;
 }
 
 
@@ -60,7 +88,7 @@ function displayLectureContent(content) {
   const container = lecturepage.querySelector('.lecture__container');
   content.forEach(function(entry) {
     var {
-      data, type,
+      data, type, caption, attribute,
     } = entry;
     let element;
     if (type === 'youtube'){
@@ -68,9 +96,9 @@ function displayLectureContent(content) {
     } else if (type === 'text') {
       element = createText(data);
     } else if (type === 'quote') {
-      element = createQuote(data);
+      element = createQuote(data,attribute);
     } else if (type === 'image') {
-      element = createImage(data);
+      element = createImage(data,caption);
     } else if (type === 'heading') {
       element = createHeading(data);
     } else if (type === 'list') {
