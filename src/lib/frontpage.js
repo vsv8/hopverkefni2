@@ -3,10 +3,10 @@ import { empty, el } from './helpers';
 // const API_URL = '/example.json?domain=';
 const LECTURE_URL = '../lectures.json';
 let frontpage;
-<<<<<<< HEAD
 let htmlButton;
 let cssButton;
 let jsButton;
+<<<<<<< HEAD
 =======
 >>>>>>> 99013ecb9a24c2b1ac9c963354244b4efab7406f
 
