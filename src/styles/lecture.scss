@@ -29,7 +29,14 @@
   }
 
   &__quote {
-    padding-top: 1.5*$gutter;
+    background-color: $lightgrey;
+    margin-top: 1.5*$gutter;
+    padding-top: 0.5*$gutter;
+
+    &__attribute {
+      padding: 0.5*$gutter 0 0.5*$gutter 0;
+      background-color: $lightgrey;
+    }
   }
 
   &__image {
@@ -38,6 +45,7 @@
 
   &__heading {
     padding-top: 1.5*$gutter;
+    font-family: $font-heading;
   }
 
   &__list {

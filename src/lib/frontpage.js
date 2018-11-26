@@ -3,8 +3,9 @@ import { empty, el } from './helpers';
 // const API_URL = '/example.json?domain=';
 const LECTURE_URL = '../lectures.json';
 let frontpage;
-
-
+let htmlButton;
+let cssButton;
+let jsButton;
 
 function displayLectures(lectureList) {
   const container = frontpage.querySelector('.lectures__container');
@@ -68,12 +69,14 @@ function hideLectures(e) {
 }
 
 export function load(_frontpage) {
-  const htmlButton = document.querySelector('.button');
+  htmlButton = document.querySelector('.button');
+  cssButton = document.querySelectorAll('.button')[1];
+  jsButton = document.querySelectorAll('.button')[2];
+
   htmlButton.addEventListener('click', hideLectures)
-  const cssButton = document.querySelectorAll('.button')[1];
   cssButton.addEventListener('click', hideLectures);
-  const jsButton = document.querySelectorAll('.button')[2];
   jsButton.addEventListener('click', hideLectures);
+
   frontpage=_frontpage;
   fetchLectures();
 }

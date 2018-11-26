@@ -31,5 +31,5 @@
     "stylelint": "^9.7.1",
     "stylelint-config-primer": "^2.2.11"
   },
-"dependencies": {}
+  "dependencies": {}
 }
