@@ -3,20 +3,23 @@ import { empty, el } from './helpers';
 // const API_URL = '/example.json?domain=';
 const LECTURE_URL = '../lectures.json';
 let frontpage;
+<<<<<<< HEAD
 let htmlButton;
 let cssButton;
 let jsButton;
+=======
+>>>>>>> 99013ecb9a24c2b1ac9c963354244b4efab7406f
 
 function displayLectures(lectureList) {
   const container = frontpage.querySelector('.lectures__container');
-  const lectures = Array.from(lectureList.lectures)
-  lectures.forEach(function(lecture) {
-    var {
-      category, content, image, slug, thumbnail, title,
+  const lectures = Array.from(lectureList.lectures);
+  lectures.forEach(function (lecture) {
+    const {
+      category, slug, thumbnail, title,
     } = lecture;
-    const boxElement = el('a','box',title);
+    const boxElement = el('a', 'box', title);
     boxElement.href = `fyrirlestur.html?slug=${slug}`;
-    const colElement = el('div',['col', 'col12', 'colBig6', 'colBigger4'],boxElement);
+    const colElement = el('div', ['col', 'col12', 'colBig6', 'colBigger4'], boxElement);
     container.appendChild(colElement);
   });
 }

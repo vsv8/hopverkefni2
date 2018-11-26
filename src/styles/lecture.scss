@@ -63,6 +63,11 @@
     padding-top: 1.5*$gutter;
     text-align: center;
 
+    &__finish {
+      display: block;
+      margin: 0 auto;
+    }
+
      &__backlink {
        display: block;
        text-align: center;
