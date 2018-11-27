@@ -1,19 +1,9 @@
 import { empty } from './helpers';
+import { load } from './storage';
 
 export default class List {
   constructor() {
-    this.container = document.querySelector('.list');
+    this.list = load();
   }
-/*
-  fetchData() {
-    fetch('../lectures.json')
-      .then((lectures) => {
-          return lectures.json();
-      }
-      .then((data) => console.log(data.lectures[0]));
-  }
-  load() {
-    empty(this.container);
-  }
-  */
+
 }

@@ -1,7 +1,9 @@
 import { empty, el } from './helpers';
+import { remove, add } from './storage';
 
 const LECTURE_URL = '../lectures.json';
 let lecturepage;
+let slug;
 
 
 function findlecture(array, key, value) {
@@ -140,11 +142,22 @@ function fetchLecture(slug) {
 }
 
 
+function finish(e) {
+  e.target.classList.toggle('lecture__footer__finished__selected');
+  if (e.target.classList.contains('lecture__footer__finished__selected')){
+    add(slug);
+  } else {
+    remove(slug);
+  }
+}
+
 
 
 export function load(_lecturepage) {
   const hostqs = window.location.search;
-  const slug = hostqs.split("=")[1];
+  slug = hostqs.split("=")[1];
   lecturepage=_lecturepage;
   fetchLecture(slug);
+  const finishButton = lecturepage.querySelector('.lecture__footer__finish');
+  finishButton.addEventListener('click', finish);
 }

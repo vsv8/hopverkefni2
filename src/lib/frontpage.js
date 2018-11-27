@@ -13,7 +13,6 @@ function displayLectures(lectureList) {
   const container = frontpage.querySelector('.lectures__container');
   empty(container)
   const lectures = Array.from(lectureList.lectures);
-  console.log(!(!show[0]&&!show[1]&&!show[2]))
   lectures.forEach(function (lecture) {
     const {
       category, slug, thumbnail, title,
@@ -54,16 +53,8 @@ function fetchLectures() {
 }
 
 function hideLectures(e) {
-  if (e.target.contains(htmlButton)) {
-    htmlButton.classList.toggle('buttons__button__selected');
-  }
-  if (e.target.contains(cssButton)) {
-    cssButton.classList.toggle('buttons__button__selected');
-  }
-  if (e.target.contains(jsButton)) {
-    jsButton.classList.toggle('buttons__button__selected');
-  }
-  load(frontpage);
+  e.target.classList.toggle('buttons__button__selected');
+  load(frontpage,list);
 }
 
 export function load(_frontpage,_list) {
@@ -81,6 +72,5 @@ export function load(_frontpage,_list) {
   ];
 
   frontpage = _frontpage;
-  list = _list;
   fetchLectures();
 }

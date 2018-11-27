@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadLecture(page);
 
   } else {
-    /* const list = new List(); */
-    /* list.load(); */
-    loadFrontapage(page);
+    const list = new List();
+    loadFrontapage(page,list);
   }
 });
