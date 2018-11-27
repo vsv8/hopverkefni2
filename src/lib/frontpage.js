@@ -6,6 +6,8 @@ let frontpage;
 let htmlButton;
 let cssButton;
 let jsButton;
+let show;
+let list;
 
 function displayLectures(lectureList) {
   const container = frontpage.querySelector('.lectures__container');
