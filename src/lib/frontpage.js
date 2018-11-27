@@ -6,22 +6,49 @@ let frontpage;
 let htmlButton;
 let cssButton;
 let jsButton;
-// <<<<<<< HEAD
-// =======
-// >>>>>>> 99013ecb9a24c2b1ac9c963354244b4efab7406f
+<<<<<<< current
+let show;
+=======
+>>>>>>> before discard
 
 function displayLectures(lectureList) {
   const container = frontpage.querySelector('.lectures__container');
+  empty(container)
   const lectures = Array.from(lectureList.lectures);
-  lectures.forEach(function (lecture) {
-    const {
-      category, slug, thumbnail, title,
-    } = lecture;
-    const boxElement = el('a', 'box', title);
-    boxElement.href = `fyrirlestur.html?slug=${slug}`;
-    const colElement = el('div', ['col', 'col12', 'colBig6', 'colBigger4', lecture.category], boxElement);
-    container.appendChild(colElement);
-  });
+  if (!show[0]&&!show[1]&&!show[2]){
+    lectures.forEach(function (lecture) {
+      const {
+        category, slug, thumbnail, title,
+      } = lecture;
+      const thumbElement = el('img', 'lectures__thumbnail','');
+      thumbElement.src = thumbnail;
+      const titleElement = el('p', 'lectures__title',title);
+      const boxElement = el('a', 'box', [thumbElement,titleElement]);
+      boxElement.href = `fyrirlestur.html?slug=${slug}`;
+      const colElement = el('div', ['col', 'col12', 'colBig6', 'colBigger4'], boxElement);
+      container.appendChild(colElement);
+    });
+  } else {
+    lectures.forEach(function (lecture) {
+      const {
+        category, slug, thumbnail, title,
+      } = lecture;
+      const thumbElement = el('img', 'lectures__thumbnail','');
+      thumbElement.src = thumbnail;
+      const titleElement = el('p', 'lectures__title',title);
+      const boxElement = el('a', 'box', [thumbElement,titleElement]);
+      boxElement.href = `fyrirlestur.html?slug=${slug}`;
+      const colElement = el('div', ['col', 'col12', 'colBig6', 'colBigger4'], boxElement);
+      if (category === 'html' && !show[0]){
+        colElement.classList.add('colHidden');
+      } else if (category === 'css' && !show[1]){
+        colElement.classList.add('colHidden');
+      } else if (category === 'javascript' && !show[2]){
+        colElement.classList.add('colHidden');
+      };
+      container.appendChild(colElement);
+    });
+  }
 }
 
 function fetchLectures() {
@@ -39,41 +66,18 @@ function fetchLectures() {
       console.error(error);
     });
 }
-const box = document.querySelector('.row');
-console.log(box);
-const htmlBox = box.querySelectorAll('.html');
-console.log(htmlBox);
-//htmlBox[0].style.display = 'none';
 
-let clicked = false;
 function hideLectures(e) {
   if (e.target.contains(htmlButton)) {
-    if (clicked === false) {
-      htmlButton.classList.add('buttons__button__selected');
-      clicked = true;
-    } else {
-      htmlButton.classList.remove('buttons__button__selected');
-      clicked = false;
-    }
+    htmlButton.classList.toggle('buttons__button__selected');
   }
   if (e.target.contains(cssButton)) {
-    if (clicked === false) {
-      cssButton.classList.add('buttons__button__selected');
-      clicked = true;
-    } else {
-      cssButton.classList.remove('buttons__button__selected');
-      clicked = false;
-    }
+    cssButton.classList.toggle('buttons__button__selected');
   }
   if (e.target.contains(jsButton)) {
-    if (clicked === false) {
-      jsButton.classList.add('buttons__button__selected');
-      clicked = true;
-    } else {
-      jsButton.classList.remove('buttons__button__selected');
-      clicked = false;
-    }
+    jsButton.classList.toggle('buttons__button__selected');
   }
+  load(frontpage);
 }
 
 export function load(_frontpage) {
@@ -84,6 +88,11 @@ export function load(_frontpage) {
   htmlButton.addEventListener('click', hideLectures)
   cssButton.addEventListener('click', hideLectures);
   jsButton.addEventListener('click', hideLectures);
+
+  show = [htmlButton.classList.contains('buttons__button__selected'),
+    cssButton.classList.contains('buttons__button__selected'),
+    jsButton.classList.contains('buttons__button__selected'),
+  ];
 
   frontpage=_frontpage;
   fetchLectures();
