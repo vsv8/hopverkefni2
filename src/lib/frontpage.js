@@ -9,19 +9,33 @@ let jsButton;
 
 function displayLectures(lectureList) {
   const container = frontpage.querySelector('.lectures__container');
+  empty(container)
   const lectures = Array.from(lectureList.lectures);
+  console.log(!(!show[0]&&!show[1]&&!show[2]))
   lectures.forEach(function (lecture) {
     const {
       category, slug, thumbnail, title,
     } = lecture;
-    const boxElement = el('a', 'box', title);
+    const thumbElement = el('img', 'lectures__thumbnail','');
+    thumbElement.src = thumbnail;
+    const titleElement = el('p', 'lectures__title',title);
+    const boxElement = el('a', 'box', [thumbElement,titleElement]);
     boxElement.href = `fyrirlestur.html?slug=${slug}`;
     const colElement = el('div', ['col', 'col12', 'colBig6', 'colBigger4'], boxElement);
+    if (!(!show[0]&&!show[1]&&!show[2])) {
+      if (category === 'html' && !show[0]){
+        colElement.classList.add('colHidden');
+      } else if (category === 'css' && !show[1]){
+        colElement.classList.add('colHidden');
+      } else if (category === 'javascript' && !show[2]){
+        colElement.classList.add('colHidden');
+      };
+    };
     container.appendChild(colElement);
   });
 }
 
-function fetchLectures(){
+function fetchLectures() {
   fetch(`${LECTURE_URL}`)
     .then((response) => {
       if (response.ok) {
@@ -37,38 +51,20 @@ function fetchLectures(){
     });
 }
 
-let clicked = false;
 function hideLectures(e) {
   if (e.target.contains(htmlButton)) {
-    if (clicked === false) {
-      htmlButton.classList.add('buttons__button__selected');
-      clicked = true;
-    } else {
-      htmlButton.classList.remove('buttons__button__selected');
-      clicked = false;
-    }
+    htmlButton.classList.toggle('buttons__button__selected');
   }
   if (e.target.contains(cssButton)) {
-    if (clicked === false) {
-      cssButton.classList.add('buttons__button__selected');
-      clicked = true;
-    } else {
-      cssButton.classList.remove('buttons__button__selected');
-      clicked = false;
-    }
+    cssButton.classList.toggle('buttons__button__selected');
   }
   if (e.target.contains(jsButton)) {
-    if (clicked === false) {
-      jsButton.classList.add('buttons__button__selected');
-      clicked = true;
-    } else {
-      jsButton.classList.remove('buttons__button__selected');
-      clicked = false;
-    }
+    jsButton.classList.toggle('buttons__button__selected');
   }
+  load(frontpage);
 }
 
-export function load(_frontpage) {
+export function load(_frontpage,_list) {
   htmlButton = document.querySelector('.button');
   cssButton = document.querySelectorAll('.button')[1];
   jsButton = document.querySelectorAll('.button')[2];
@@ -77,6 +73,12 @@ export function load(_frontpage) {
   cssButton.addEventListener('click', hideLectures);
   jsButton.addEventListener('click', hideLectures);
 
-  frontpage=_frontpage;
+  show = [htmlButton.classList.contains('buttons__button__selected'),
+    cssButton.classList.contains('buttons__button__selected'),
+    jsButton.classList.contains('buttons__button__selected'),
+  ];
+
+  frontpage = _frontpage;
+  list = _list;
   fetchLectures();
 }
