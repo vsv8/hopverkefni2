@@ -6,9 +6,9 @@ let frontpage;
 let htmlButton;
 let cssButton;
 let jsButton;
-<<<<<<< HEAD
-=======
->>>>>>> 99013ecb9a24c2b1ac9c963354244b4efab7406f
+// <<<<<<< HEAD
+// =======
+// >>>>>>> 99013ecb9a24c2b1ac9c963354244b4efab7406f
 
 function displayLectures(lectureList) {
   const container = frontpage.querySelector('.lectures__container');
@@ -19,12 +19,12 @@ function displayLectures(lectureList) {
     } = lecture;
     const boxElement = el('a', 'box', title);
     boxElement.href = `fyrirlestur.html?slug=${slug}`;
-    const colElement = el('div', ['col', 'col12', 'colBig6', 'colBigger4'], boxElement);
+    const colElement = el('div', ['col', 'col12', 'colBig6', 'colBigger4', lecture.category], boxElement);
     container.appendChild(colElement);
   });
 }
 
-function fetchLectures(){
+function fetchLectures() {
   fetch(`${LECTURE_URL}`)
     .then((response) => {
       if (response.ok) {
@@ -39,6 +39,11 @@ function fetchLectures(){
       console.error(error);
     });
 }
+const box = document.querySelector('.row');
+console.log(box);
+const htmlBox = box.querySelectorAll('.html');
+console.log(htmlBox);
+//htmlBox[0].style.display = 'none';
 
 let clicked = false;
 function hideLectures(e) {
