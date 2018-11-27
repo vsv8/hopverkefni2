@@ -6,9 +6,6 @@ let frontpage;
 let htmlButton;
 let cssButton;
 let jsButton;
-<<<<<<< HEAD
-=======
->>>>>>> 99013ecb9a24c2b1ac9c963354244b4efab7406f
 
 function displayLectures(lectureList) {
   const container = frontpage.querySelector('.lectures__container');
