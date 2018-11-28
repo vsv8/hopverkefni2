@@ -6,13 +6,13 @@
 
   &__button {
     background-color: $lightgrey;
-    height: 2*$gutter;
+    height: 3*$gutter;
     border: 0 solid;
-    padding: 0 0.5*$gutter;
-    margin: 0 0.5*$gutter;
+    padding: 0.5*$gutter 0.5*$gutter 0.5*$gutter 0.5*$gutter;
+    margin: 0.5*$gutter 0.5*$gutter 0.5*$gutter 0.5*$gutter;
     font-family: $font-heading;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 2rem;
     border-radius: 10px;
     transition: background-color  300ms ease-in-out 0s;
   }
