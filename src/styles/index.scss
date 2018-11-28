@@ -11,6 +11,8 @@
     padding: 0 0.5*$gutter;
     margin: 0 0.5*$gutter;
     font-family: $font-heading;
+    font-weight: bold;
+    font-size: 1rem;
     border-radius: 10px;
     transition: background-color  300ms ease-in-out 0s;
   }
@@ -20,22 +22,34 @@
       transition: background-color  300ms ease-in-out 0s;
     }
 }
+
 .lectures {
 
   &__title {
-      font-weight: bold;
-      font-size: 24px;
-      color: black;
-      text-decoration: none;
-      padding-top: 1em;
-      padding-bottom: 1em;
-      padding-left: 0.5em;
-      background-color: #999;
+    font-family: $font-heading;
+    font-weight: bold;
+    font-size: 2rem;
+    color: $black;
+    text-decoration: none;
+    padding-bottom: $gutter;
+    padding-left: 0.5*$gutter;
+    background-color: $lightgrey;
   }
+
+  &__type {
+    font-family: $font-heading;
+    font-size: 1rem;
+    color: $black;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-top: 0.5*$gutter;
+    padding-left: 0.5*$gutter;
+    background-color: $lightgrey;
+  }
+
   &__thumbnail {
-    background-color: #999;
-    margin-top: 1em;
-
+    background-color: $lightgrey;
+    margin-top: 2*$gutter;
+    margin-bottom: -4px;
   }
-
 }

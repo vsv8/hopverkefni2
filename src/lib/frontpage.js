@@ -19,8 +19,9 @@ function displayLectures(lectureList) {
     } = lecture;
     const thumbElement = el('img', 'lectures__thumbnail','');
     thumbElement.src = thumbnail;
-    const titleElement = el('p', 'lectures__title',title);
-    const boxElement = el('a', 'box', [thumbElement,titleElement]);
+    const typeElement = el('p', 'lectures__type',category);
+    const titleElement = el('h1', 'lectures__title',title);
+    const boxElement = el('a', 'box', [thumbElement, typeElement, titleElement]);
     boxElement.href = `fyrirlestur.html?slug=${slug}`;
     const colElement = el('div', ['col', 'col12', 'colBig6', 'colBigger4'], boxElement);
     if (!(!show[0]&&!show[1]&&!show[2])) {
