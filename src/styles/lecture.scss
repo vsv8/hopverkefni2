@@ -74,6 +74,7 @@
       font-family: $font-heading;
       font-size: 1rem;
       border: 0;
+      background-color: $white;
     }
 
     &__backlink {
@@ -85,7 +86,8 @@
     }
 
     &__finished__selected {
-      color: transparent;
+      color: $white;
+      background-color: $white;
     }
 
     &__finished__selected::after {
