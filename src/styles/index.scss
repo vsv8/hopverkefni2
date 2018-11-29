@@ -36,6 +36,7 @@
     flex-direction: column;
     justify-content: flex-end;
     background-color: $lightgrey;
+    transition: background-color  300ms ease-in-out 0s;
   }
 
   &__box:hover {
