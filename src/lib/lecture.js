@@ -153,11 +153,14 @@ function finish(e) {
 
 
 
-export function load(_lecturepage) {
+export function load(_lecturepage, _list) {
   const hostqs = window.location.search;
   slug = hostqs.split("=")[1];
   lecturepage=_lecturepage;
   fetchLecture(slug);
   const finishButton = lecturepage.querySelector('.lecture__footer__finish');
+  if (_list.list.includes(slug)) {
+    finishButton.classList.add('lecture__footer__finished__selected');
+  }
   finishButton.addEventListener('click', finish);
 }

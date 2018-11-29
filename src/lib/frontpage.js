@@ -21,7 +21,14 @@ function displayLectures(lectureList) {
     thumbElement.src = thumbnail;
     const typeElement = el('p', 'lectures__type', category);
     const titleElement = el('h1', 'lectures__title', title);
-    const boxElement = el('a', 'box', [thumbElement, typeElement, titleElement]);
+    const finishedElement = el('h1', 'lectures__finished', '✓');
+    var titleContainer;
+    if (list.includes(slug)) {
+      titleContainer = el('h1', 'lectures__title', [titleElement, finishedElement]);
+    } else {
+      titleContainer = titleElement;
+    }
+    const boxElement = el('a', 'box', [thumbElement, typeElement, titleContainer]);
     boxElement.href = `fyrirlestur.html?slug=${slug}`;
     const colElement = el('div', ['col', 'col12', 'colBig6', 'colBigger4'], boxElement);
     if (!(!show[0] && !show[1] && !show[2])) {
@@ -71,5 +78,6 @@ export function load(_frontpage, _list) {
   ];
 
   frontpage = _frontpage;
+  list = _list.list;
   fetchLectures();
 }
