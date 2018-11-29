@@ -1,6 +1,6 @@
 import List from './lib/list';
-import { load as loadFrontapage } from './lib/frontpage';
-import { load as loadLecture } from './lib/lecture';
+import loader from './lib/frontpage';
+import load from './lib/lecture';
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (isLecturePage) {
     const list = new List();
-    loadLecture(page,list);
+    load(page,list);
 
   } else {
     const list = new List();
-    loadFrontapage(page,list);
+    loader(page,list);
   }
 });

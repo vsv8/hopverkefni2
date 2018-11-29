@@ -7,10 +7,10 @@ let slug;
 
 
 function findlecture(array, key, value) {
-  for (var i = 0; i < array.length; i++) {
-      if (array[i][key] === value) {
-          return array[i];
-      }
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i][key] === value) {
+      return array[i];
+    }
   }
   return null;
 }
@@ -26,7 +26,7 @@ function createYoutube(data) {
 function createText(data) {
   const container = el('div', 'lecture__text__container', '');
   const textar = data.split('\n');
-  textar.forEach(function (text) {
+  textar.forEach((text) => {
     const element = el('p', 'lecture__text', `${text}`);
     container.appendChild(element);
   });
@@ -40,35 +40,35 @@ function createQuote(data, attribute) {
   container.appendChild(element2);
   return container;
 }
-function createImage(data, caption){
+function createImage(data, caption) {
   const container = el('div', 'lecture__quote__container', '');
-  const element = el('img', 'lecture__image','');
+  const element = el('img', 'lecture__image', '');
   element.src = data;
   container.appendChild(element);
   const element2 = el('p', 'lecture__image__caption', `${caption}`);
   container.appendChild(element2);
   return container;
 }
-function createHeading(data){
+function createHeading(data) {
   const element = el('h2', 'lecture__heading', `${data}`);
   return element;
 }
-function createList(data){
+function createList(data) {
   const list = el('ul', 'lecture__list', '');
-  data.forEach(function(listEl) {
+  data.forEach((listEl) => {
     const element = el('li', 'lecture__list__element', `${listEl}`);
     list.appendChild(element);
   });
   return list;
 }
-function createCode(data){
+function createCode(data) {
   const container = el('div', 'lecture__code__container', '');
-  const lines = data.split('\n')
-  lines.forEach(function(line) {
-    var element;
-    if (line === "") {
+  const lines = data.split('\n');
+  lines.forEach((line) => {
+    let element;
+    if (line === '') {
       element = el('br', '', '');
-    } else {
+    } else {
       element = el('p', 'lecture__code', `${line}`);
     }
     container.appendChild(element);
@@ -92,7 +92,7 @@ function displayLectureHeader(image, title, category) {
 
 function displayLectureContent(content) {
   const container = lecturepage.querySelector('.lecture__container');
-  content.forEach(function (entry) {
+  content.forEach((entry) => {
     const {
       data, type, caption, attribute,
     } = entry;
@@ -112,7 +112,7 @@ function displayLectureContent(content) {
     } else if (type === 'code') {
       element = createCode(data);
     }
-    const colElement = el('div',['col', 'col12', 'colBig8', 'offsetBig2'],element);
+    const colElement = el('div', ['col', 'col12', 'colBig8', 'offsetBig2'], element);
     container.appendChild(colElement);
   });
 }
@@ -127,7 +127,7 @@ function displayLecture(lecture) {
 }
 
 
-function fetchLecture(slug) {
+function fetchLecture() {
   fetch(`${LECTURE_URL}`)
     .then((response) => {
       if (response.ok) {
@@ -137,7 +137,7 @@ function fetchLecture(slug) {
     })
     .then((data) => {
       const lectures = Array.from(data.lectures);
-      const lecture = findlecture(lectures, 'slug', slug)
+      const lecture = findlecture(lectures, 'slug', slug);
       displayLecture(lecture);
     })
     .catch((error) => {
@@ -148,20 +148,18 @@ function fetchLecture(slug) {
 
 function finish(e) {
   e.target.classList.toggle('lecture__footer__finished__selected');
-  if (e.target.classList.contains('lecture__footer__finished__selected')){
+  if (e.target.classList.contains('lecture__footer__finished__selected')) {
     add(slug);
   } else {
     remove(slug);
   }
 }
 
-
-
-export function load(_lecturepage, _list) {
+export default function load(_lecturepage, _list) {
   const hostqs = window.location.search;
-  slug = hostqs.split("=")[1];
-  lecturepage=_lecturepage;
-  fetchLecture(slug);
+  slug = hostqs.split('=')[1];
+  lecturepage = _lecturepage;
+  fetchLecture();
   const finishButton = lecturepage.querySelector('.lecture__footer__finish');
   if (_list.list.includes(slug)) {
     finishButton.classList.add('lecture__footer__finished__selected');

@@ -13,18 +13,18 @@ function displayLectures(lectureList) {
   const container = frontpage.querySelector('.lectures__container');
   empty(container);
   const lectures = Array.from(lectureList.lectures);
-  lectures.forEach(function (lecture) {
+  lectures.forEach((lecture) => {
     const {
       category, slug, thumbnail, title,
     } = lecture;
     const thumbElement = el('img', 'lectures__thumbnail', '');
-    if (thumbnail){
+    if (thumbnail) {
       thumbElement.src = thumbnail;
     }
     const typeElement = el('p', 'lectures__type', category);
     const titleElement = el('h1', 'lectures__title', title);
     const finishedElement = el('h1', 'lectures__finished', '✓');
-    var titleContainer;
+    let titleContainer;
     if (list.list.includes(slug)) {
       titleContainer = el('h1', 'lectures__title__container', [titleElement, finishedElement]);
     } else {
@@ -62,12 +62,13 @@ function fetchLectures() {
     });
 }
 
+let loader;
 function hideLectures(e) {
   e.target.classList.toggle('buttons__button__selected');
-  load(frontpage, list);
+  loader(frontpage, list);
 }
 
-export function load(_frontpage, _list) {
+export default function loader(_frontpage, _list) {
   [htmlButton, cssButton, jsButton] = document.querySelectorAll('.button');
 
   htmlButton.addEventListener('click', hideLectures);
