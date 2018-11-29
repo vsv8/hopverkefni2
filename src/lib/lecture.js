@@ -79,7 +79,11 @@ function createCode(data){
 
 function displayLectureHeader(image, title, category) {
   const header = lecturepage.querySelector('.header__lecture');
-  header.style.backgroundImage = `url(${image})`;
+  if (image) {
+    header.style.backgroundImage = `url(${image})`;
+  } else {
+    header.style.backgroundImage = 'none';
+  }
   const headerSubtitle = el('h3', 'header__subtitle', category);
   const headerTitle = el('h1', 'header__title', title);
   header.appendChild(headerSubtitle);

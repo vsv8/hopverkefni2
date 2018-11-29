@@ -1,3 +1,44 @@
+#Keyrsla á verkefni
+
+Sækja skal allar skrár.
+Staðsetningin fundin í command line og skipunin 'npm install' keyrð til að ná í nauðsynlega pakka.
+Að lokum er 'npm run dev' keyrð og það startar verkefninu. Ef vilji er fyrir að nota linter þá er hægt að keyra 'npm run test'
+
+#Uppsetning
+
+Allar myndir eru í möppunni 'img'
+Forsíðan er í skránni 'index.html' á meðan grunnurinn af fyrirlestrarsíðunum er í fyrirlestur.html. 
+Grunn scss skráin sem safnar öllu saman og er síðan þýdd yfir í scss er 'styles.scss' en hún og hinar hlut-scss skrárnar eru geymdar í möppunni 'scss'. 
+Þar er skráin 'config.scss' sem heldur utan um breytur svosem liti og stærðir.
+Ein skrá heldur utan um beinagrindina þ.e. 'grid.scss' þar eru geymdar allar mögulegar stærðir á col ásamt grunnstillingum á row og grid.
+Síðan er sér scss skrá fyrir header, sér fyrir efni forsíðu og sér fyrir efni fyrirlestrarsíðanna. Þær skrár heita eftir viðkomandi hluta. Ekki þótti ástæða til þess að brjóta css-ið meira niður þar sem síðan er ekki svo stór.
+Miðað er við BEM það er einungis er vísað í klasa og að lokum þá er síðan byggð upp útfrá mobile first sem sést greinilega í 'grid.scss'.
+Java script kóðinn er einnig brotinn niður í skrár. Yfir skráin er index.js en þar er kallað á rétt föll þegar síðan hefur hlaðist. js skrárnar eru helpers.js sem inniheldur hjálparföll, storage.js sem sér um samskipti við local storage, list sem inniheldur clasann list sem geymir upplýsingarnar sem storage.js nær í. Að lokum eru skrárnar tvær frontpage.js og lecture.js sem innihalda kóðann fyrir virkni fyrir tilsvarandi síður.
+
+#Hópmeðlimir
+
+Hópmeðlimir voru:
+
+Bjarki Már Gunnarsson
+
+Jón Hlöðver Friðriksson
+
+Viktor Sigbjörn Víðisson
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Hópverkefni 2
 
 Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
