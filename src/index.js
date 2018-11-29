@@ -8,10 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (isLecturePage) {
     const list = new List();
-    load(page,list);
-
+    load(page, list);
   } else {
     const list = new List();
-    loader(page,list);
+    loader(page, list);
   }
 });

@@ -17,6 +17,10 @@
     transition: background-color  300ms ease-in-out 0s;
   }
 
+  &__button:hover {
+    background-color: $grey;
+  }
+
   &__button__selected {
     background-color: $lime;
     transition: background-color  300ms ease-in-out 0s;
@@ -32,6 +36,10 @@
     flex-direction: column;
     justify-content: flex-end;
     background-color: $lightgrey;
+  }
+
+  &__box:hover {
+    background-color: $grey;
   }
 
   &__title {
