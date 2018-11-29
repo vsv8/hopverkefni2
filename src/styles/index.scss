@@ -1,55 +1,54 @@
 @import "config";
 
 .buttons {
-  text-align: center;
   padding: 2*$gutter;
+  text-align: center;
 
   &__button {
-    background-color: $lightgrey;
     height: 3*$gutter;
-    border: 0 solid;
-    padding: 0.5*$gutter 0.5*$gutter 0.5*$gutter 0.5*$gutter;
-    margin: 0.5*$gutter 0.5*$gutter 0.5*$gutter 0.5*$gutter;
+    padding: 0.5*$gutter;
+    margin: 0.5*$gutter;
     font-family: $font-heading;
-    font-weight: bold;
     font-size: 2rem;
+    font-weight: bold;
+    background-color: $lightgrey;
+    border: 0 solid;
     border-radius: 10px;
     transition: background-color  300ms ease-in-out 0s;
   }
 
   &__button__selected {
-      background-color: $lime;
-      transition: background-color  300ms ease-in-out 0s;
-    }
+    background-color: $lime;
+    transition: background-color  300ms ease-in-out 0s;
+  }
 }
 
 .lectures {
-
   &__title {
-    font-family: $font-heading;
-    font-weight: bold;
-    font-size: 2rem;
-    color: $black;
-    text-decoration: none;
     padding-bottom: $gutter;
     padding-left: 0.5*$gutter;
+    font-family: $font-heading;
+    font-size: 2rem;
+    font-weight: bold;
+    color: $black;
+    text-decoration: none;
     background-color: $lightgrey;
   }
 
   &__type {
+    padding-top: 0.5*$gutter;
+    padding-left: 0.5*$gutter;
     font-family: $font-heading;
     font-size: 1rem;
     color: $black;
     text-decoration: none;
     text-transform: uppercase;
-    padding-top: 0.5*$gutter;
-    padding-left: 0.5*$gutter;
     background-color: $lightgrey;
   }
 
   &__thumbnail {
-    background-color: $lightgrey;
     margin-top: 2*$gutter;
     margin-bottom: -4px;
+    background-color: $lightgrey;
   }
 }

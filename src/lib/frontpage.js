@@ -11,28 +11,28 @@ let list;
 
 function displayLectures(lectureList) {
   const container = frontpage.querySelector('.lectures__container');
-  empty(container)
+  empty(container);
   const lectures = Array.from(lectureList.lectures);
   lectures.forEach(function (lecture) {
     const {
       category, slug, thumbnail, title,
     } = lecture;
-    const thumbElement = el('img', 'lectures__thumbnail','');
+    const thumbElement = el('img', 'lectures__thumbnail', '');
     thumbElement.src = thumbnail;
-    const typeElement = el('p', 'lectures__type',category);
-    const titleElement = el('h1', 'lectures__title',title);
+    const typeElement = el('p', 'lectures__type', category);
+    const titleElement = el('h1', 'lectures__title', title);
     const boxElement = el('a', 'box', [thumbElement, typeElement, titleElement]);
     boxElement.href = `fyrirlestur.html?slug=${slug}`;
     const colElement = el('div', ['col', 'col12', 'colBig6', 'colBigger4'], boxElement);
-    if (!(!show[0]&&!show[1]&&!show[2])) {
-      if (category === 'html' && !show[0]){
+    if (!(!show[0] && !show[1] && !show[2])) {
+      if (category === 'html' && !show[0]) {
         colElement.classList.add('colHidden');
-      } else if (category === 'css' && !show[1]){
+      } else if (category === 'css' && !show[1]) {
         colElement.classList.add('colHidden');
-      } else if (category === 'javascript' && !show[2]){
+      } else if (category === 'javascript' && !show[2]) {
         colElement.classList.add('colHidden');
-      };
-    };
+      }
+    }
     container.appendChild(colElement);
   });
 }
@@ -55,15 +55,13 @@ function fetchLectures() {
 
 function hideLectures(e) {
   e.target.classList.toggle('buttons__button__selected');
-  load(frontpage,list);
+  load(frontpage, list);
 }
 
-export function load(_frontpage,_list) {
-  htmlButton = document.querySelector('.button');
-  cssButton = document.querySelectorAll('.button')[1];
-  jsButton = document.querySelectorAll('.button')[2];
+export function load(_frontpage, _list) {
+  [htmlButton, cssButton, jsButton] = document.querySelectorAll('.button');
 
-  htmlButton.addEventListener('click', hideLectures)
+  htmlButton.addEventListener('click', hideLectures);
   cssButton.addEventListener('click', hideLectures);
   jsButton.addEventListener('click', hideLectures);
 

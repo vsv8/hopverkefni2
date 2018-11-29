@@ -1,8 +1,4 @@
-
 const LOCALSTORAGE_KEY = 'finished_lectures';
-
-
-
 
 export function load() {
   const savedData = window.localStorage.getItem(LOCALSTORAGE_KEY);
@@ -22,15 +18,15 @@ export function load() {
  */
 export function add(slug) {
   const finished = load();
-  if (!finished.includes(slug)){
+  if (!finished.includes(slug)) {
     finished.push(slug);
-  };
+  }
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(finished));
 }
 
 export function remove(slug) {
   const finished = load();
-  var index = finished.indexOf(slug);
+  const index = finished.indexOf(slug);
   if (index > -1) {
     finished.splice(index, 1);
   }
