@@ -157,7 +157,7 @@ function finish(e) {
 
 export default function load(_lecturepage, _list) {
   const hostqs = window.location.search;
-  slug = hostqs.split('=').splice(-1);
+  [slug] = hostqs.split('=').splice(-1);
   lecturepage = _lecturepage;
   fetchLecture();
   const finishButton = lecturepage.querySelector('.lecture__footer__finish');
