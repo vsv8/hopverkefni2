@@ -26,11 +26,11 @@ function displayLectures(lectureList) {
     const finishedElement = el('h1', 'lectures__finished', '✓');
     var titleContainer;
     if (list.list.includes(slug)) {
-      titleContainer = el('h1', 'lectures__title', [titleElement, finishedElement]);
+      titleContainer = el('h1', 'lectures__title__container', [titleElement, finishedElement]);
     } else {
       titleContainer = titleElement;
     }
-    const boxElement = el('a', 'box', [thumbElement, typeElement, titleContainer]);
+    const boxElement = el('a', 'lectures__box', [thumbElement, typeElement, titleContainer]);
     boxElement.href = `fyrirlestur.html?slug=${slug}`;
     const colElement = el('div', ['col', 'col12', 'colBig6', 'colBigger4'], boxElement);
     if (!(!show[0] && !show[1] && !show[2])) {
