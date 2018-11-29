@@ -62,12 +62,7 @@ function fetchLectures() {
     });
 }
 
-let loader;
-function hideLectures(e) {
-  e.target.classList.toggle('buttons__button__selected');
-  loader(frontpage, list);
-}
-
+let hideLectures;
 export default function loader(_frontpage, _list) {
   [htmlButton, cssButton, jsButton] = document.querySelectorAll('.button');
 
@@ -84,3 +79,8 @@ export default function loader(_frontpage, _list) {
   list = _list;
   fetchLectures();
 }
+
+hideLectures = function blas(e) {
+  e.target.classList.toggle('buttons__button__selected');
+  loader(frontpage, list);
+};
