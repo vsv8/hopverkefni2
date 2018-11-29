@@ -19,23 +19,11 @@ Java script kóðinn er einnig brotinn niður í skrár. Yfir skráin er index.j
 
 Hópmeðlimir voru:
 
-Bjarki Már Gunnarsson
+Bjarki Már Gunnarsson - bmg18@hi.is
 
-Jón Hlöðver Friðriksson
+Jón Hlöðver Friðriksson - jhf2@hi.is
 
-Viktor Sigbjörn Víðisson
-
-
-
-
-
-
-
-
-
-
-
-
+Viktor Sigbjörn Víðisson - vsv8@hi.is
 
 
 
