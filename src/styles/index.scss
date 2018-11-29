@@ -19,6 +19,7 @@
 
   &__button:hover {
     background-color: $grey;
+    transition: background-color  300ms ease-in-out 0s;
   }
 
   &__button__selected {
