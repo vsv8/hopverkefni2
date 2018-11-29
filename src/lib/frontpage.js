@@ -18,12 +18,14 @@ function displayLectures(lectureList) {
       category, slug, thumbnail, title,
     } = lecture;
     const thumbElement = el('img', 'lectures__thumbnail', '');
-    thumbElement.src = thumbnail;
+    if (thumbnail){
+      thumbElement.src = thumbnail;
+    }
     const typeElement = el('p', 'lectures__type', category);
     const titleElement = el('h1', 'lectures__title', title);
     const finishedElement = el('h1', 'lectures__finished', '✓');
     var titleContainer;
-    if (list.includes(slug)) {
+    if (list.list.includes(slug)) {
       titleContainer = el('h1', 'lectures__title', [titleElement, finishedElement]);
     } else {
       titleContainer = titleElement;
@@ -78,6 +80,6 @@ export function load(_frontpage, _list) {
   ];
 
   frontpage = _frontpage;
-  list = _list.list;
+  list = _list;
   fetchLectures();
 }

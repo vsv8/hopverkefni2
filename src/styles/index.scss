@@ -1,5 +1,9 @@
 @import "config";
 
+.box {
+  text-decoration: none;
+}
+
 .buttons {
   padding: 2*$gutter;
   text-align: center;
@@ -31,7 +35,6 @@
     font-size: 2rem;
     font-weight: bold;
     color: $black;
-    text-decoration: none;
     background-color: $lightgrey;
   }
 
